@@ -58,6 +58,9 @@ class ViewController: UIViewController {
         lblChapter.hidden = false
         
         lblSentence.text = sentence
+
+        lblDivider.text = "___"
+        lblDivider.hidden = false
         
         lblInfoMediaYear.text = info + " " + media + " " + year
         lblInfoMediaYear.hidden = false
