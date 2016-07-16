@@ -18,7 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblChapter: UILabel!
     @IBOutlet weak var lblSentence: UILabel!
     @IBOutlet weak var lblDivider: UILabel!
-    @IBOutlet weak var lblInfoMediaYear: UILabel!
+    @IBOutlet weak var lblInfo: UILabel!
+    @IBOutlet weak var lblMedia: UILabel!
+    @IBOutlet weak var lblYear: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +64,13 @@ class ViewController: UIViewController {
         lblDivider.text = "___"
         lblDivider.hidden = false
         
-        lblInfoMediaYear.text = info + " " + media + " " + year
-        lblInfoMediaYear.hidden = false
+        lblInfo.text = info
+        lblInfo.hidden = false
+        lblMedia.text = media
+        lblMedia.hidden = false
+        lblYear.text = year
+        lblYear.hidden = false
+        
         
     }
     
