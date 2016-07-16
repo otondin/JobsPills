@@ -75,7 +75,7 @@
                     <connections>
                         <outlet property="lblChapter" destination="39F-wg-Pjx" id="g67-Uy-JjB"/>
                         <outlet property="lblDivider" destination="ClP-cG-zcb" id="aXX-aS-3tW"/>
-                        <outlet property="lblInfoYear" destination="KJf-GZ-i2d" id="iU0-YP-Omp"/>
+                        <outlet property="lblInfoMediaYear" destination="KJf-GZ-i2d" id="uEi-r2-hzk"/>
                         <outlet property="lblSentence" destination="lXf-aG-cPk" id="FGe-nj-eCd"/>
                     </connections>
                 </viewController>
