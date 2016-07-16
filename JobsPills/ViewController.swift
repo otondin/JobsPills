@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblChapter: UILabel!
     @IBOutlet weak var lblSentence: UILabel!
     @IBOutlet weak var lblDivider: UILabel!
-    @IBOutlet weak var lblInfoYear: UILabel!
+    @IBOutlet weak var lblInfoMediaYear: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,41 +48,19 @@ class ViewController: UIViewController {
     func randomizeSentence() {
         let position = Int(arc4random_uniform(UInt32(sentences.count)))
         
-        let chapter: String? = String(sentences[position]["Chapter"])
-        let sentence: String? = String(sentences[position]["Text"])
-        let info: String? = String(sentences[position]["Info"])
-        let media: String? = String(sentences[position]["Media"])
-        let year: String? = String(sentences[position]["Year"])
+        let chapter: String = String(sentences[position]["Chapter"])
+        let sentence: String = String(sentences[position]["Text"])
+        let info: String = String(sentences[position]["Info"])
+        let media: String = String(sentences[position]["Media"])
+        let year: String = String(sentences[position]["Year"])
         
         lblChapter.text = chapter
         lblChapter.hidden = false
         
         lblSentence.text = sentence
         
-        lblDivider.text = "___"
-        lblDivider.hidden = false
-        
-        if info != nil {
-            lblInfoYear.text = info
-            lblInfoYear.hidden = false
-            if media != nil {
-                lblInfoYear.text = info! + ", " + media!
-                lblInfoYear.hidden = false
-                if year != nil {
-                    lblInfoYear.text = info! + ", " + media! + ", " +  year!
-                    lblInfoYear.highlighted = false
-                }
-            }
-        } else {
-            if media != nil {
-                lblInfoYear.text = media
-                lblInfoYear.hidden = false
-                if year != nil {
-                    lblInfoYear.text = media! + ", " + year!
-                    lblInfoYear.highlighted = false
-                }
-            }
-        }
+        lblInfoMediaYear.text = info + " " + media + " " + year
+        lblInfoMediaYear.hidden = false
         
     }
     
