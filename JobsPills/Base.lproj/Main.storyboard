@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JobsPills" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,71 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chapter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39F-wg-Pjx">
+                                <rect key="frame" x="217" y="105" width="166" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="KFc-3i-NMF"/>
+                                    <constraint firstAttribute="height" constant="21" id="uPh-AY-H9C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake or Touch It!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-aG-cPk">
+                                <rect key="frame" x="20" y="134" width="560" height="306"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info &amp; Year" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJf-GZ-i2d" userLabel="Lbl Info &amp; Year">
+                                <rect key="frame" x="20" y="448" width="560" height="83"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-cG-zcb">
+                                <rect key="frame" x="275" y="419" width="51" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="I7e-SV-gIn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lXf-aG-cPk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4cF-Mr-Qne"/>
+                            <constraint firstItem="39F-wg-Pjx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="8ay-Eh-EKD"/>
+                            <constraint firstItem="ClP-cG-zcb" firstAttribute="centerX" secondItem="KJf-GZ-i2d" secondAttribute="centerX" id="EP7-33-8ua"/>
+                            <constraint firstItem="KJf-GZ-i2d" firstAttribute="top" secondItem="lXf-aG-cPk" secondAttribute="bottom" constant="8" symbolic="YES" id="HqE-o1-zE2"/>
+                            <constraint firstItem="lXf-aG-cPk" firstAttribute="trailing" secondItem="KJf-GZ-i2d" secondAttribute="trailing" id="IZO-pT-CcC"/>
+                            <constraint firstItem="KJf-GZ-i2d" firstAttribute="firstBaseline" secondItem="ClP-cG-zcb" secondAttribute="firstBaseline" constant="29" id="TCw-Py-8Hq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KJf-GZ-i2d" secondAttribute="bottom" constant="69" id="Zdg-PL-Qxt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ClP-cG-zcb" secondAttribute="bottom" constant="160" id="Zu4-9D-uhm"/>
+                            <constraint firstItem="lXf-aG-cPk" firstAttribute="leading" secondItem="KJf-GZ-i2d" secondAttribute="leading" id="bDn-do-ui8"/>
+                            <constraint firstItem="39F-wg-Pjx" firstAttribute="centerX" secondItem="lXf-aG-cPk" secondAttribute="centerX" id="bJ9-hd-BAd"/>
+                            <constraint firstItem="lXf-aG-cPk" firstAttribute="top" secondItem="39F-wg-Pjx" secondAttribute="bottom" constant="8" symbolic="YES" id="qbe-Fy-DF1"/>
+                            <constraint firstItem="lXf-aG-cPk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="244" id="rRp-vp-9Rg"/>
+                            <constraint firstItem="lXf-aG-cPk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wUa-Yw-jsw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rRp-vp-9Rg"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="lblChapter" destination="39F-wg-Pjx" id="g67-Uy-JjB"/>
+                        <outlet property="lblDivider" destination="ClP-cG-zcb" id="aXX-aS-3tW"/>
+                        <outlet property="lblInfoYear" destination="KJf-GZ-i2d" id="iU0-YP-Omp"/>
+                        <outlet property="lblSentence" destination="lXf-aG-cPk" id="FGe-nj-eCd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="948" y="502"/>
         </scene>
     </scenes>
 </document>
