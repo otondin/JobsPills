@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>JobsPillsTodayWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B111C39D1D3AF1C30071B70A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B1E203711D3AB03F00A46A2F</key>
 		<dict>
 			<key>primary</key>

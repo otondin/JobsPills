@@ -13,6 +13,9 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     var sentences: JSON = JSON.null
+    var contentSentence: String? = nil
+    
+    var contentVisible:Bool = false
     
     // Interface components
     @IBOutlet weak var lblChapter: UILabel!
@@ -25,6 +28,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Hidding some buttons and labels o beniging
+        lblChapter.hidden = true
+        lblInfo.hidden = true
+        lblDivider.hidden = true
+        lblMedia.hidden = true
+        lblYear.hidden = true
+        
+        
+        // Enabling label sentence to be touchable
+        lblSentence.userInteractionEnabled = true
+        
+        // Detecting long press touch on sentence
+        let longTouchGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTouchHandler(_:)))
+        lblSentence.addGestureRecognizer(longTouchGesture)
+        
+        // Detecting screenshot
+        let mainQueue = NSOperationQueue.mainQueue()
+        NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationUserDidTakeScreenshotNotification,
+            object: nil,
+            queue: mainQueue) { notification in
+                if self.contentVisible == true {
+                    self.showContentShare()
+                }
+            }
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,19 +67,23 @@ class ViewController: UIViewController {
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
             randomizeSentence()
+            
+            contentVisible = true
         }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         randomizeSentence()
+        
+        contentVisible = true
     }
     
     // Randomize a sentence to show
-    func randomizeSentence() {
+    func randomizeSentence() -> String{
         let position = Int(arc4random_uniform(UInt32(sentences.count)))
         
         let chapter: String = String(sentences[position]["Chapter"])
-        let sentence: String = String(sentences[position]["Text"])
+        contentSentence = String(sentences[position]["Text"])
         let info: String = String(sentences[position]["Info"])
         let media: String = String(sentences[position]["Media"])
         let year: String = String(sentences[position]["Year"])
@@ -59,7 +91,7 @@ class ViewController: UIViewController {
         lblChapter.text = chapter
         lblChapter.hidden = false
         
-        lblSentence.text = sentence
+        lblSentence.text = contentSentence
 
         lblDivider.text = "___"
         lblDivider.hidden = false
@@ -71,7 +103,46 @@ class ViewController: UIViewController {
         lblYear.text = year
         lblYear.hidden = false
         
+        return contentSentence!
         
     }
+    
+    // Composing content to show this time
+    func stringifySentence() -> String {
+        let sentence = "JobsPills: \"" + contentSentence! + "\" (Steve Jobs)"
+        
+        return sentence
+    }
+    
+    // Showing share activity
+    func showContentShare() {
+    
+        let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Get the app https://goo.gl/EhgwVP"
+        
+        let sharedItems = [screenShotToShare(), sharedInfoContent]
+        
+        let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
+    }
+    
+    // Getting screen image to share
+    func screenShotToShare() -> UIImage {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+
+        return image
+    }
+    
+    // Handling with long touch gesture
+    func longTouchHandler(sender: UIGestureRecognizer) {
+        if sender.state == .Ended {
+            if contentVisible == true {
+                self.showContentShare()
+            }
+        }
+    }
+    
     
 }
