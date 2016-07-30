@@ -9,9 +9,10 @@
 import UIKit
 import SwiftyJSON
 import FirebaseAnalytics
+import MessageUI
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var sentences: JSON = JSON.null
     var contentSentence: String? = nil
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
             object: nil,
             queue: mainQueue) { notification in
                 if self.contentVisible == true {
-                    self.showContentShare()
+                    self.showActionShet()
                     
                     FIRAnalytics.logEventWithName("Took Screenshot to Share Content", parameters: [
                         kFIRParameterContentType: "cont",
@@ -135,32 +136,92 @@ class ViewController: UIViewController {
         return sentence
     }
     
+    // Showing action options to share or report error on sentence
+    func showActionShet() {
+        let optionMenu = UIAlertController(title: nil, message: "O que deseja fazer com a frase?", preferredStyle: .ActionSheet)
+        
+        let shareOption = UIAlertAction(title: "Compartilhar", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+                self.showContentShare()
+        })
+        
+        let reportErrorOption = UIAlertAction(title: "Reportar erro", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+                self.reportSentenceError()
+        })
+        
+        optionMenu.addAction(shareOption)
+        optionMenu.addAction(reportErrorOption)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
     // Showing share activity
     func showContentShare() {
     
         let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Get the app https://goo.gl/EhgwVP"
         
-        let sharedItems = [screenShotToShare(), sharedInfoContent]
+        let sharedImageContent = screenShotToShare().0
+        
+        let sharedItems = [sharedImageContent, sharedInfoContent]
         
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
     }
     
+    // Reporting Sencente Error
+    func reportSentenceError() {
+        // TODO: open Mail app with screenshot attached
+        
+        let subject = "JobsPills: Erro na frase"
+        let destination = "tondin@icloud.com"
+        let mail = MFMailComposeViewController()
+        let attachment = screenShotToShare().1
+        
+        mail.mailComposeDelegate = self
+        mail.setSubject(subject)
+        mail.setToRecipients([destination])
+        mail.addAttachmentData(attachment, mimeType: "image/jpg", fileName: "Sentence")
+        
+        self.presentViewController(mail, animated: true, completion: nil)
+    }
+    
+    // Controlling mail sending
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        switch result {
+        case MFMailComposeResultCancelled:
+            print("Mail cancelled")
+        case MFMailComposeResultSaved:
+            print("Mail saved")
+        case MFMailComposeResultSent:
+            print("Mail sent")
+        case MFMailComposeResultFailed:
+            print("Mail sent failure: \(error!.localizedDescription)")
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     // Getting screen image to share
-    func screenShotToShare() -> UIImage {
-        UIGraphicsBeginImageContext(view.frame.size)
+    func screenShotToShare() -> (UIImage, NSData) {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
         view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
-
-        return image
+        
+        UIGraphicsEndImageContext()
+        
+        let imageData = UIImagePNGRepresentation(image)
+        let imageToShare = UIImage.init(data: imageData!)
+        return (imageToShare!, imageData!)
     }
     
     // Handling with long touch gesture
     func longTouchHandler(sender: UIGestureRecognizer) {
         if sender.state == .Ended {
             if contentVisible == true {
-                self.showContentShare()
+                self.showActionShet()
                 
                 FIRAnalytics.logEventWithName("Long Touched to Share Content", parameters: [
                     kFIRParameterContentType: "cont",
