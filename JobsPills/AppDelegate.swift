@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftyJSON
+import FirebaseAnalytics
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             viewController.sentences = JSON.null
         }
+        
+        FIRApp.configure()
         
         return true
     }
