@@ -52,7 +52,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             object: nil,
             queue: mainQueue) { notification in
                 if self.contentVisible == true {
-                    self.showActionShet()
+                    self.showActionOptions()()
                     
                     FIRAnalytics.logEventWithName("Took Screenshot to Share Content", parameters: [
                         kFIRParameterContentType: "cont",
@@ -137,7 +137,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     // Showing action options to share or report error on sentence
-    func showActionShet() {
+    func showActionOptions() {
         let optionMenu = UIAlertController(title: nil, message: "O que deseja fazer com a frase?", preferredStyle: .ActionSheet)
         
         let shareOption = UIAlertAction(title: "Compartilhar", style: .Default, handler: {
@@ -150,8 +150,11 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
                 self.reportSentenceError()
         })
         
+        let cancelOption = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
+        
         optionMenu.addAction(shareOption)
         optionMenu.addAction(reportErrorOption)
+        optionMenu.addAction(cancelOption)
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
@@ -159,7 +162,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     // Showing share activity
     func showContentShare() {
     
-        let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Get the app https://goo.gl/EhgwVP"
+        let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Get the app here: https://goo.gl/EhgwVP"
         
         let sharedImageContent = screenShotToShare().0
         
@@ -221,7 +224,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     func longTouchHandler(sender: UIGestureRecognizer) {
         if sender.state == .Ended {
             if contentVisible == true {
-                self.showActionShet()
+                self.showActionOptions()
                 
                 FIRAnalytics.logEventWithName("Long Touched to Share Content", parameters: [
                     kFIRParameterContentType: "cont",
