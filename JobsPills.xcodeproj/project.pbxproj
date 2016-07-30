@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0531178B3324D78C874F23C8 /* Pods_JobsPills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E78DAE94F701096E637AD3 /* Pods_JobsPills.framework */; };
 		B111C3A01D3AF1C30071B70A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B111C39F1D3AF1C30071B70A /* NotificationCenter.framework */; };
 		B111C3A31D3AF1C30071B70A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B111C3A21D3AF1C30071B70A /* TodayViewController.swift */; };
 		B111C3A61D3AF1C30071B70A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B111C3A41D3AF1C30071B70A /* MainInterface.storyboard */; };
 		B111C3AB1D3AF1C30071B70A /* JobsPillsTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B111C39E1D3AF1C30071B70A /* JobsPillsTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B180AFAF1D4CF01600FD1B64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */; };
 		B1B88F871D3AB330003979F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B88F831D3AB330003979F1 /* LaunchScreen.storyboard */; };
 		B1B88F881D3AB330003979F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B88F851D3AB330003979F1 /* Main.storyboard */; };
 		B1B88F8B1D3AB38F003979F1 /* sentences.json in Resources */ = {isa = PBXBuildFile; fileRef = B1B88F8A1D3AB38F003979F1 /* sentences.json */; };
@@ -18,7 +20,6 @@
 		B1E203761D3AB03F00A46A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E203751D3AB03F00A46A2F /* AppDelegate.swift */; };
 		B1E203781D3AB03F00A46A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E203771D3AB03F00A46A2F /* ViewController.swift */; };
 		B1E203941D3AB1E900A46A2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E203931D3AB1E900A46A2F /* Assets.xcassets */; };
-		E3B0D67D15DDB3B21CBE1C84 /* Pods_JobsPills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0372F4E8FB0AAEE2744CA44 /* Pods_JobsPills.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +47,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2AEB696F171B710F1C4161A4 /* Pods-JobsPills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsPills.release.xcconfig"; path = "Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills.release.xcconfig"; sourceTree = "<group>"; };
-		914142CF22B27D9375E8E59C /* Pods-JobsPills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsPills.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills.debug.xcconfig"; sourceTree = "<group>"; };
+		0476D78EC15A34EECBB41461 /* Pods-JobsPills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsPills.release.xcconfig"; path = "Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills.release.xcconfig"; sourceTree = "<group>"; };
+		1ED6FC9578D79A299FE6A141 /* Pods-JobsPills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsPills.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills.debug.xcconfig"; sourceTree = "<group>"; };
 		B111C39E1D3AF1C30071B70A /* JobsPillsTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JobsPillsTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B111C39F1D3AF1C30071B70A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		B111C3A21D3AF1C30071B70A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B111C3A51D3AF1C30071B70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B111C3A71D3AF1C30071B70A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1B88F841D3AB330003979F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1B88F861D3AB330003979F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1B88F8A1D3AB38F003979F1 /* sentences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sentences.json; path = ../../../Dropbox/JobsPills/Sentences/sentences.json; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		B1E203771D3AB03F00A46A2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1E203841D3AB03F00A46A2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1E203931D3AB1E900A46A2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F0372F4E8FB0AAEE2744CA44 /* Pods_JobsPills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsPills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1E78DAE94F701096E637AD3 /* Pods_JobsPills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsPills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,18 +80,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3B0D67D15DDB3B21CBE1C84 /* Pods_JobsPills.framework in Frameworks */,
+				0531178B3324D78C874F23C8 /* Pods_JobsPills.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4CEA65FEFB7A4B00F4548B49 /* Pods */ = {
+		8F2D68CBAEEA64AA7F43C307 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				914142CF22B27D9375E8E59C /* Pods-JobsPills.debug.xcconfig */,
-				2AEB696F171B710F1C4161A4 /* Pods-JobsPills.release.xcconfig */,
+				1ED6FC9578D79A299FE6A141 /* Pods-JobsPills.debug.xcconfig */,
+				0476D78EC15A34EECBB41461 /* Pods-JobsPills.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -97,8 +99,8 @@
 		95212F12C7F9B0716968C7B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F0372F4E8FB0AAEE2744CA44 /* Pods_JobsPills.framework */,
 				B111C39F1D3AF1C30071B70A /* NotificationCenter.framework */,
+				D1E78DAE94F701096E637AD3 /* Pods_JobsPills.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,8 +129,8 @@
 				B1E203741D3AB03F00A46A2F /* JobsPills */,
 				B111C3A11D3AF1C30071B70A /* JobsPillsTodayWidget */,
 				B1E203731D3AB03F00A46A2F /* Products */,
-				4CEA65FEFB7A4B00F4548B49 /* Pods */,
 				95212F12C7F9B0716968C7B2 /* Frameworks */,
+				8F2D68CBAEEA64AA7F43C307 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +152,7 @@
 				B1E203751D3AB03F00A46A2F /* AppDelegate.swift */,
 				B1CC759A1D3B3142005B6D7F /* InfoViewController.swift */,
 				B1E203771D3AB03F00A46A2F /* ViewController.swift */,
+				B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */,
 				B1E203841D3AB03F00A46A2F /* Info.plist */,
 				B1E203931D3AB1E900A46A2F /* Assets.xcassets */,
 			);
@@ -180,13 +183,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1E203871D3AB03F00A46A2F /* Build configuration list for PBXNativeTarget "JobsPills" */;
 			buildPhases = (
-				A652E366361C786461AB4B90 /* Check Pods Manifest.lock */,
+				5C4BB26EBC7A7136DC8D5E85 /* [CP] Check Pods Manifest.lock */,
 				B1E2036E1D3AB03F00A46A2F /* Sources */,
 				B1E2036F1D3AB03F00A46A2F /* Frameworks */,
 				B1E203701D3AB03F00A46A2F /* Resources */,
-				EF3FD9F8D1C55C732CB94011 /* Embed Pods Frameworks */,
-				E1470C4530A865B728ADF4C2 /* Copy Pods Resources */,
 				B111C3AA1D3AF1C30071B70A /* Embed App Extensions */,
+				3F7B5F3B04CFBE76883C9081 /* [CP] Embed Pods Frameworks */,
+				539FD4CD0F5B7A829EF8EB19 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,6 +255,7 @@
 			files = (
 				B1B88F881D3AB330003979F1 /* Main.storyboard in Resources */,
 				B1E203941D3AB1E900A46A2F /* Assets.xcassets in Resources */,
+				B180AFAF1D4CF01600FD1B64 /* GoogleService-Info.plist in Resources */,
 				B1B88F8B1D3AB38F003979F1 /* sentences.json in Resources */,
 				B1B88F871D3AB330003979F1 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -260,29 +264,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A652E366361C786461AB4B90 /* Check Pods Manifest.lock */ = {
+		3F7B5F3B04CFBE76883C9081 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1470C4530A865B728ADF4C2 /* Copy Pods Resources */ = {
+		539FD4CD0F5B7A829EF8EB19 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,19 +294,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF3FD9F8D1C55C732CB94011 /* Embed Pods Frameworks */ = {
+		5C4BB26EBC7A7136DC8D5E85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -369,6 +373,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JobsPillsTodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills.JobsPillsTodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,6 +386,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = JobsPillsTodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills.JobsPillsTodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -465,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -475,7 +481,7 @@
 		};
 		B1E203881D3AB03F00A46A2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 914142CF22B27D9375E8E59C /* Pods-JobsPills.debug.xcconfig */;
+			baseConfigurationReference = 1ED6FC9578D79A299FE6A141 /* Pods-JobsPills.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -491,7 +497,7 @@
 		};
 		B1E203891D3AB03F00A46A2F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AEB696F171B710F1C4161A4 /* Pods-JobsPills.release.xcconfig */;
+			baseConfigurationReference = 0476D78EC15A34EECBB41461 /* Pods-JobsPills.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
