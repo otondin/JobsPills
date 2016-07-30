@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'JobsPills' do
 	pod 'SwiftyJSON'
+    pod 'Firebase/Core'
 end
 
