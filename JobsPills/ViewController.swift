@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import FirebaseAnalytics
 
 
 class ViewController: UIViewController {
@@ -51,6 +52,11 @@ class ViewController: UIViewController {
             queue: mainQueue) { notification in
                 if self.contentVisible == true {
                     self.showContentShare()
+                    
+                    FIRAnalytics.logEventWithName("Took Screenshot to Share Content", parameters: [
+                        kFIRParameterContentType: "cont",
+                        kFIRParameterItemID: "1"
+                    ])
                 }
             }
     }
@@ -69,6 +75,11 @@ class ViewController: UIViewController {
             randomizeSentence()
             
             contentVisible = true
+            
+            FIRAnalytics.logEventWithName("Shaked to Randomize Sentence", parameters: [
+                kFIRParameterContentType: "cont",
+                kFIRParameterItemID: "1"
+            ])
         }
     }
     
@@ -76,6 +87,11 @@ class ViewController: UIViewController {
         randomizeSentence()
         
         contentVisible = true
+        
+        FIRAnalytics.logEventWithName("Touched to Randomize Sentence", parameters: [
+            kFIRParameterContentType: "cont",
+            kFIRParameterItemID: "1"
+            ])
     }
     
     // Randomize a sentence to show
@@ -87,7 +103,7 @@ class ViewController: UIViewController {
         let info: String = String(sentences[position]["Info"])
         let media: String = String(sentences[position]["Media"])
         let year: String = String(sentences[position]["Year"])
-        
+    
         lblChapter.text = chapter
         lblChapter.hidden = false
         
@@ -102,6 +118,11 @@ class ViewController: UIViewController {
         lblMedia.hidden = false
         lblYear.text = year
         lblYear.hidden = false
+        
+        FIRAnalytics.logEventWithName("Randomized Sentence", parameters: [
+            kFIRParameterContentType: "cont",
+            kFIRParameterItemID: "1"
+        ])
         
         return contentSentence!
         
@@ -140,6 +161,11 @@ class ViewController: UIViewController {
         if sender.state == .Ended {
             if contentVisible == true {
                 self.showContentShare()
+                
+                FIRAnalytics.logEventWithName("Long Touched to Share Content", parameters: [
+                    kFIRParameterContentType: "cont",
+                    kFIRParameterItemID: "1"
+                ])
             }
         }
     }
