@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0531178B3324D78C874F23C8 /* Pods_JobsPills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1E78DAE94F701096E637AD3 /* Pods_JobsPills.framework */; };
-		B111C3A01D3AF1C30071B70A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B111C39F1D3AF1C30071B70A /* NotificationCenter.framework */; };
-		B111C3A31D3AF1C30071B70A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B111C3A21D3AF1C30071B70A /* TodayViewController.swift */; };
-		B111C3A61D3AF1C30071B70A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B111C3A41D3AF1C30071B70A /* MainInterface.storyboard */; };
-		B111C3AB1D3AF1C30071B70A /* JobsPillsTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B111C39E1D3AF1C30071B70A /* JobsPillsTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B180AFAF1D4CF01600FD1B64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */; };
 		B1B88F871D3AB330003979F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B88F831D3AB330003979F1 /* LaunchScreen.storyboard */; };
 		B1B88F881D3AB330003979F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B88F851D3AB330003979F1 /* Main.storyboard */; };
@@ -22,16 +18,6 @@
 		B1E203941D3AB1E900A46A2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E203931D3AB1E900A46A2F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		B111C3A81D3AF1C30071B70A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1E2036A1D3AB03F00A46A2F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B111C39D1D3AF1C30071B70A;
-			remoteInfo = JobsPillsTodayWidget;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		B111C3AA1D3AF1C30071B70A /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -39,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B111C3AB1D3AF1C30071B70A /* JobsPillsTodayWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,11 +34,7 @@
 /* Begin PBXFileReference section */
 		0476D78EC15A34EECBB41461 /* Pods-JobsPills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsPills.release.xcconfig"; path = "Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills.release.xcconfig"; sourceTree = "<group>"; };
 		1ED6FC9578D79A299FE6A141 /* Pods-JobsPills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsPills.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills.debug.xcconfig"; sourceTree = "<group>"; };
-		B111C39E1D3AF1C30071B70A /* JobsPillsTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JobsPillsTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B111C39F1D3AF1C30071B70A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		B111C3A21D3AF1C30071B70A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		B111C3A51D3AF1C30071B70A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		B111C3A71D3AF1C30071B70A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1B88F841D3AB330003979F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1B88F861D3AB330003979F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,14 +49,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B111C39B1D3AF1C30071B70A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B111C3A01D3AF1C30071B70A /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1E2036F1D3AB03F00A46A2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,16 +78,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B111C3A11D3AF1C30071B70A /* JobsPillsTodayWidget */ = {
-			isa = PBXGroup;
-			children = (
-				B111C3A21D3AF1C30071B70A /* TodayViewController.swift */,
-				B111C3A41D3AF1C30071B70A /* MainInterface.storyboard */,
-				B111C3A71D3AF1C30071B70A /* Info.plist */,
-			);
-			path = JobsPillsTodayWidget;
-			sourceTree = "<group>";
-		};
 		B1B88F891D3AB37B003979F1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				B1E203741D3AB03F00A46A2F /* JobsPills */,
-				B111C3A11D3AF1C30071B70A /* JobsPillsTodayWidget */,
 				B1E203731D3AB03F00A46A2F /* Products */,
 				95212F12C7F9B0716968C7B2 /* Frameworks */,
 				8F2D68CBAEEA64AA7F43C307 /* Pods */,
@@ -138,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				B1E203721D3AB03F00A46A2F /* JobsPills.app */,
-				B111C39E1D3AF1C30071B70A /* JobsPillsTodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,23 +123,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B111C39D1D3AF1C30071B70A /* JobsPillsTodayWidget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B111C3AE1D3AF1C30071B70A /* Build configuration list for PBXNativeTarget "JobsPillsTodayWidget" */;
-			buildPhases = (
-				B111C39A1D3AF1C30071B70A /* Sources */,
-				B111C39B1D3AF1C30071B70A /* Frameworks */,
-				B111C39C1D3AF1C30071B70A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = JobsPillsTodayWidget;
-			productName = JobsPillsTodayWidget;
-			productReference = B111C39E1D3AF1C30071B70A /* JobsPillsTodayWidget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		B1E203711D3AB03F00A46A2F /* JobsPills */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1E203871D3AB03F00A46A2F /* Build configuration list for PBXNativeTarget "JobsPills" */;
@@ -194,7 +138,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B111C3A91D3AF1C30071B70A /* PBXTargetDependency */,
 			);
 			name = JobsPills;
 			productName = JobsPills;
@@ -211,10 +154,6 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Caife Software";
 				TargetAttributes = {
-					B111C39D1D3AF1C30071B70A = {
-						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7CP79LM7LH;
-					};
 					B1E203711D3AB03F00A46A2F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7CP79LM7LH;
@@ -235,20 +174,11 @@
 			projectRoot = "";
 			targets = (
 				B1E203711D3AB03F00A46A2F /* JobsPills */,
-				B111C39D1D3AF1C30071B70A /* JobsPillsTodayWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B111C39C1D3AF1C30071B70A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B111C3A61D3AF1C30071B70A /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1E203701D3AB03F00A46A2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,14 +242,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B111C39A1D3AF1C30071B70A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B111C3A31D3AF1C30071B70A /* TodayViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1E2036E1D3AB03F00A46A2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,23 +254,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		B111C3A91D3AF1C30071B70A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B111C39D1D3AF1C30071B70A /* JobsPillsTodayWidget */;
-			targetProxy = B111C3A81D3AF1C30071B70A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		B111C3A41D3AF1C30071B70A /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B111C3A51D3AF1C30071B70A /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		B1B88F831D3AB330003979F1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -368,32 +274,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B111C3AC1D3AF1C30071B70A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = JobsPillsTodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills.JobsPillsTodayWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B111C3AD1D3AF1C30071B70A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = JobsPillsTodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills.JobsPillsTodayWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		B1E203851D3AB03F00A46A2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -514,15 +394,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B111C3AE1D3AF1C30071B70A /* Build configuration list for PBXNativeTarget "JobsPillsTodayWidget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B111C3AC1D3AF1C30071B70A /* Debug */,
-				B111C3AD1D3AF1C30071B70A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B1E2036D1D3AB03F00A46A2F /* Build configuration list for PBXProject "JobsPills" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
