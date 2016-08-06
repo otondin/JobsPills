@@ -11,11 +11,13 @@ import SwiftyJSON
 import FirebaseAnalytics
 import MessageUI
 
-
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var sentences: JSON = JSON.null
     var contentSentence: String? = nil
+    
+    // Shared Info
+    let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Baixe o app: http://jobspills.caife.com.br"
     
     var contentVisible:Bool = false
     
@@ -52,12 +54,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             object: nil,
             queue: mainQueue) { notification in
                 if self.contentVisible == true {
-                    self.showActionOptions()()
+                    self.showActionOptions()
                     
-                    FIRAnalytics.logEventWithName("Took Screenshot to Share Content", parameters: [
-                        kFIRParameterContentType: "cont",
-                        kFIRParameterItemID: "1"
-                    ])
+                    FIRAnalytics.logEventWithName("Took Screenshot to Share Content", parameters: nil)
                 }
             }
     }
@@ -77,10 +76,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             
             contentVisible = true
             
-            FIRAnalytics.logEventWithName("Shaked to Randomize Sentence", parameters: [
-                kFIRParameterContentType: "cont",
-                kFIRParameterItemID: "1"
-            ])
+            FIRAnalytics.logEventWithName("Shaked to Randomize Sentence", parameters: nil)
         }
     }
     
@@ -89,60 +85,56 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         contentVisible = true
         
-        FIRAnalytics.logEventWithName("Touched to Randomize Sentence", parameters: [
-            kFIRParameterContentType: "cont",
-            kFIRParameterItemID: "1"
-            ])
+        FIRAnalytics.logEventWithName("Touched to Randomize Sentence", parameters: nil)
     }
     
     // Randomize a sentence to show
-    func randomizeSentence() -> String{
-        let position = Int(arc4random_uniform(UInt32(sentences.count)))
+    func randomizeSentence() -> String {
+        let position = Int(arc4random_uniform(UInt32(self.sentences.count)))
         
-        let chapter: String = String(sentences[position]["Chapter"])
-        contentSentence = String(sentences[position]["Text"])
-        let info: String = String(sentences[position]["Info"])
-        let media: String = String(sentences[position]["Media"])
-        let year: String = String(sentences[position]["Year"])
-    
-        lblChapter.text = chapter
-        lblChapter.hidden = false
+        let chapter: String = String(self.sentences[position]["Chapter"])
+        self.contentSentence = String(self.sentences[position]["Text"])
+        let info: String = String(self.sentences[position]["Info"])
+        let media: String = String(self.sentences[position]["Media"])
+        let year: String = String(self.sentences[position]["Year"])
         
-        lblSentence.text = contentSentence
-
-        lblDivider.text = "___"
-        lblDivider.hidden = false
+        self.lblChapter.text = chapter
+        self.lblChapter.hidden = false
         
-        lblInfo.text = info
-        lblInfo.hidden = false
-        lblMedia.text = media
-        lblMedia.hidden = false
-        lblYear.text = year
-        lblYear.hidden = false
+        self.lblSentence.text = self.contentSentence
         
-        FIRAnalytics.logEventWithName("Randomized Sentence", parameters: [
-            kFIRParameterContentType: "cont",
-            kFIRParameterItemID: "1"
-        ])
+        self.lblDivider.text = "___"
+        self.lblDivider.hidden = false
+        
+        self.lblInfo.text = info
+        self.lblInfo.hidden = false
+        self.lblMedia.text = media
+        self.lblMedia.hidden = false
+        self.lblYear.text = year
+        self.lblYear.hidden = false
         
         return contentSentence!
-        
     }
     
     // Composing content to show this time
     func stringifySentence() -> String {
-        let sentence = "JobsPills: \"" + contentSentence! + "\" (Steve Jobs)"
+        let sentence = "\"\(contentSentence!)\" \n \(sharedInfoContent)\n"
         
         return sentence
     }
     
     // Showing action options to share or report error on sentence
     func showActionOptions() {
-        let optionMenu = UIAlertController(title: nil, message: "O que deseja fazer com a frase?", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "O que deseja fazer?", preferredStyle: .ActionSheet)
         
-        let shareOption = UIAlertAction(title: "Compartilhar", style: .Default, handler: {
+        let shareScreenShotOption = UIAlertAction(title: "Compartilhar screenshot", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-                self.showContentShare()
+                self.shareScreenShotActivity()
+        })
+        
+        let shareSentenceOption = UIAlertAction(title: "Compartilhar frase", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.shareSentenceActivity()
         })
         
         let reportErrorOption = UIAlertAction(title: "Reportar erro", style: .Default, handler: {
@@ -152,7 +144,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         let cancelOption = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
         
-        optionMenu.addAction(shareOption)
+        optionMenu.addAction(shareScreenShotOption)
+        optionMenu.addAction(shareSentenceOption)
         optionMenu.addAction(reportErrorOption)
         optionMenu.addAction(cancelOption)
         
@@ -160,24 +153,32 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     // Showing share activity
-    func showContentShare() {
-    
-        let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Get the app here: https://goo.gl/EhgwVP"
+    func shareScreenShotActivity() {
         
         let sharedImageContent = screenShotToShare().0
         
-        let sharedItems = [sharedImageContent, sharedInfoContent]
+        let sharedItems = [sharedImageContent]
         
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
+        
+        FIRAnalytics.logEventWithName("Shared Screenshot", parameters: nil)
+    }
+    
+    func shareSentenceActivity() {
+        
+        let sharedItems = [stringifySentence()]
+        
+        let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
+        
+        FIRAnalytics.logEventWithName("Shared Sentence", parameters: nil)
     }
     
     // Reporting Sencente Error
     func reportSentenceError() {
-        // TODO: open Mail app with screenshot attached
-        
-        let subject = "JobsPills: Erro na frase"
-        let destination = "tondin@icloud.com"
+        let subject = "JobsPills - Reportar erro"
+        let destination = "jobspills@caife.com.br"
         let mail = MFMailComposeViewController()
         let attachment = screenShotToShare().1
         
@@ -204,6 +205,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             break
         }
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        FIRAnalytics.logEventWithName("Error Reported", parameters: nil)
+        
     }
 
     // Getting screen image to share
@@ -221,18 +225,17 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     // Handling with long touch gesture
-    func longTouchHandler(sender: UIGestureRecognizer) {
-        if sender.state == .Ended {
+    func longTouchHandler(sender: UILongPressGestureRecognizer) {
+        if sender.state == .Began {
             if contentVisible == true {
                 self.showActionOptions()
                 
-                FIRAnalytics.logEventWithName("Long Touched to Share Content", parameters: [
-                    kFIRParameterContentType: "cont",
-                    kFIRParameterItemID: "1"
-                ])
+                FIRAnalytics.logEventWithName("Long Touched to Share Content", parameters: nil)
             }
         }
     }
     
+    //MARK: Some animations
     
+
 }
