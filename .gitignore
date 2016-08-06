@@ -4,3 +4,5 @@ DS_Store
 Pods
 Podfile.lock
 
+fastlane/
+
