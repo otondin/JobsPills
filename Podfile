@@ -3,7 +3,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'JobsPills' do
-	pod 'SwiftyJSON'
+	pod 'SwiftyJSON', '~> 2.3'
     pod 'Firebase/Core'
 end
 

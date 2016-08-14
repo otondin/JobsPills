@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import Firebase
 import FirebaseAnalytics
 import MessageUI
 
@@ -118,7 +119,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     // Composing content to show this time
     func stringifySentence() -> String {
-        let sentence = "\"\(contentSentence!)\" \n \(sharedInfoContent)\n"
+        let sentence = "\"\(contentSentence!)\""
         
         return sentence
     }
@@ -157,7 +158,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         let sharedImageContent = screenShotToShare().0
         
-        let sharedItems = [sharedImageContent]
+        let sharedItems = [sharedImageContent, sharedInfoContent]
         
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
@@ -167,7 +168,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     func shareSentenceActivity() {
         
-        let sharedItems = [stringifySentence()]
+        let sharedItems = [stringifySentence(), sharedInfoContent]
         
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: {})
