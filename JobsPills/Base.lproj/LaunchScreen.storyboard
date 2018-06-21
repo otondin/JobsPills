@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,49 +19,28 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SJ" translatesAutoresizingMaskIntoConstraints="NO" id="Xcc-D2-QvR">
-                                <rect key="frame" x="-5" y="155" width="303" height="445"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="293" id="f5Y-Sz-OLK"/>
-                                    <constraint firstAttribute="width" secondItem="Xcc-D2-QvR" secondAttribute="height" multiplier="303:445" id="iCl-zY-qZ8"/>
-                                    <constraint firstAttribute="width" secondItem="Xcc-D2-QvR" secondAttribute="height" multiplier="293:431" id="pDM-Qh-3lk"/>
-                                    <constraint firstAttribute="width" constant="293" id="vHF-g1-I9e"/>
-                                    <constraint firstAttribute="height" constant="431" id="yU7-j6-60T"/>
-                                    <constraint firstAttribute="height" constant="431" id="yfj-zp-9tq"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="f5Y-Sz-OLK"/>
-                                        <exclude reference="pDM-Qh-3lk"/>
-                                        <exclude reference="vHF-g1-I9e"/>
-                                        <exclude reference="yU7-j6-60T"/>
-                                        <exclude reference="yfj-zp-9tq"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stay hungry. Stay foolish." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3xC-OX-xTg">
+                                <rect key="frame" x="16" y="314" width="343" height="39"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Xcc-D2-QvR" firstAttribute="width" secondItem="Xcc-D2-QvR" secondAttribute="height" multiplier="293:431" id="4sN-bT-Kfc"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Xcc-D2-QvR" secondAttribute="bottom" id="6HR-8O-fve"/>
-                            <constraint firstItem="Xcc-D2-QvR" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-25" id="9mU-Q1-Pr5"/>
+                            <constraint firstItem="3xC-OX-xTg" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="294" id="59l-kW-lCt"/>
+                            <constraint firstItem="3xC-OX-xTg" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="otT-w7-7mP"/>
+                            <constraint firstItem="3xC-OX-xTg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qQO-XW-YXH"/>
+                            <constraint firstItem="3xC-OX-xTg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="wr4-LX-enW"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="4sN-bT-Kfc"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="382"/>
+            <point key="canvasLocation" x="589.60000000000002" y="381.85907046476763"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="SJ" width="297" height="445"/>
-    </resources>
 </document>

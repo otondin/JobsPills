@@ -12,23 +12,11 @@
 		B180AFAF1D4CF01600FD1B64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */; };
 		B1B88F871D3AB330003979F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B88F831D3AB330003979F1 /* LaunchScreen.storyboard */; };
 		B1B88F881D3AB330003979F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B88F851D3AB330003979F1 /* Main.storyboard */; };
-		B1C5B1D41D55399F003B82BF /* JobsPillsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5B1D31D55399F003B82BF /* JobsPillsUITests.swift */; };
-		B1C5B1DC1D553A11003B82BF /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5B1DB1D553A11003B82BF /* SnapshotHelper.swift */; };
-		B1CC759B1D3B3142005B6D7F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC759A1D3B3142005B6D7F /* InfoViewController.swift */; };
 		B1E203761D3AB03F00A46A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E203751D3AB03F00A46A2F /* AppDelegate.swift */; };
 		B1E203781D3AB03F00A46A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E203771D3AB03F00A46A2F /* ViewController.swift */; };
 		B1E203941D3AB1E900A46A2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E203931D3AB1E900A46A2F /* Assets.xcassets */; };
+		FD8FFC2A20DBF3CA0088A9A7 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8FFC2920DBF3CA0088A9A7 /* Sentence.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B1C5B1D61D55399F003B82BF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1E2036A1D3AB03F00A46A2F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B1E203711D3AB03F00A46A2F;
-			remoteInfo = JobsPills;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B111C3AA1D3AF1C30071B70A /* Embed App Extensions */ = {
@@ -51,27 +39,19 @@
 		B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1B88F841D3AB330003979F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1B88F861D3AB330003979F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B1C5B1D11D55399F003B82BF /* JobsPillsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobsPillsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C5B1D31D55399F003B82BF /* JobsPillsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsPillsUITests.swift; sourceTree = "<group>"; };
 		B1C5B1D51D55399F003B82BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1C5B1DB1D553A11003B82BF /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		B1CC759A1D3B3142005B6D7F /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		B1E203721D3AB03F00A46A2F /* JobsPills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsPills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E203751D3AB03F00A46A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1E203771D3AB03F00A46A2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1E203841D3AB03F00A46A2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1E203931D3AB1E900A46A2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1E78DAE94F701096E637AD3 /* Pods_JobsPills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsPills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD8FFC2920DBF3CA0088A9A7 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B1C5B1CE1D55399F003B82BF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1E2036F1D3AB03F00A46A2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				B1E203721D3AB03F00A46A2F /* JobsPills.app */,
-				B1C5B1D11D55399F003B82BF /* JobsPillsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,8 +125,8 @@
 				B1B88F831D3AB330003979F1 /* LaunchScreen.storyboard */,
 				B1B88F851D3AB330003979F1 /* Main.storyboard */,
 				B1E203751D3AB03F00A46A2F /* AppDelegate.swift */,
-				B1CC759A1D3B3142005B6D7F /* InfoViewController.swift */,
 				B1E203771D3AB03F00A46A2F /* ViewController.swift */,
+				FD8FFC2920DBF3CA0088A9A7 /* Sentence.swift */,
 				B180AFAE1D4CF01600FD1B64 /* GoogleService-Info.plist */,
 				B1E203841D3AB03F00A46A2F /* Info.plist */,
 				B1E203931D3AB1E900A46A2F /* Assets.xcassets */,
@@ -158,24 +137,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B1C5B1D01D55399F003B82BF /* JobsPillsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B1C5B1DA1D55399F003B82BF /* Build configuration list for PBXNativeTarget "JobsPillsUITests" */;
-			buildPhases = (
-				B1C5B1CD1D55399F003B82BF /* Sources */,
-				B1C5B1CE1D55399F003B82BF /* Frameworks */,
-				B1C5B1CF1D55399F003B82BF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B1C5B1D71D55399F003B82BF /* PBXTargetDependency */,
-			);
-			name = JobsPillsUITests;
-			productName = JobsPillsUITests;
-			productReference = B1C5B1D11D55399F003B82BF /* JobsPillsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		B1E203711D3AB03F00A46A2F /* JobsPills */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1E203871D3AB03F00A46A2F /* Build configuration list for PBXNativeTarget "JobsPills" */;
@@ -186,7 +147,6 @@
 				B1E203701D3AB03F00A46A2F /* Resources */,
 				B111C3AA1D3AF1C30071B70A /* Embed App Extensions */,
 				3F7B5F3B04CFBE76883C9081 /* [CP] Embed Pods Frameworks */,
-				539FD4CD0F5B7A829EF8EB19 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,16 +164,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Caife Software";
 				TargetAttributes = {
-					B1C5B1D01D55399F003B82BF = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = B1E203711D3AB03F00A46A2F;
-					};
 					B1E203711D3AB03F00A46A2F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7CP79LM7LH;
+						DevelopmentTeam = BC477APS74;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -231,19 +188,11 @@
 			projectRoot = "";
 			targets = (
 				B1E203711D3AB03F00A46A2F /* JobsPills */,
-				B1C5B1D01D55399F003B82BF /* JobsPillsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B1C5B1CF1D55399F003B82BF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1E203701D3AB03F00A46A2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,28 +214,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		539FD4CD0F5B7A829EF8EB19 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JobsPills/Pods-JobsPills-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C4BB26EBC7A7136DC8D5E85 /* [CP] Check Pods Manifest.lock */ = {
@@ -295,46 +232,32 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JobsPills-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B1C5B1CD1D55399F003B82BF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B1C5B1D41D55399F003B82BF /* JobsPillsUITests.swift in Sources */,
-				B1C5B1DC1D553A11003B82BF /* SnapshotHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B1E2036E1D3AB03F00A46A2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B1E203781D3AB03F00A46A2F /* ViewController.swift in Sources */,
-				B1CC759B1D3B3142005B6D7F /* InfoViewController.swift in Sources */,
+				FD8FFC2A20DBF3CA0088A9A7 /* Sentence.swift in Sources */,
 				B1E203761D3AB03F00A46A2F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B1C5B1D71D55399F003B82BF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B1E203711D3AB03F00A46A2F /* JobsPills */;
-			targetProxy = B1C5B1D61D55399F003B82BF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B1B88F831D3AB330003979F1 /* LaunchScreen.storyboard */ = {
@@ -356,30 +279,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B1C5B1D81D55399F003B82BF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = JobsPillsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills.JobsPillsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = JobsPills;
-			};
-			name = Debug;
-		};
-		B1C5B1D91D55399F003B82BF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = JobsPillsUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills.JobsPillsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = JobsPills;
-			};
-			name = Release;
-		};
 		B1E203851D3AB03F00A46A2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -394,8 +293,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -440,8 +341,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -460,6 +363,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -469,14 +373,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1ED6FC9578D79A299FE6A141 /* Pods-JobsPills.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = BC477APS74;
 				INFOPLIST_FILE = JobsPills/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tondin.JobsPills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -485,14 +391,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0476D78EC15A34EECBB41461 /* Pods-JobsPills.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = BC477APS74;
 				INFOPLIST_FILE = JobsPills/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.caife.JobsPills;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tondin.JobsPills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -500,15 +408,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B1C5B1DA1D55399F003B82BF /* Build configuration list for PBXNativeTarget "JobsPillsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B1C5B1D81D55399F003B82BF /* Debug */,
-				B1C5B1D91D55399F003B82BF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B1E2036D1D3AB03F00A46A2F /* Build configuration list for PBXProject "JobsPills" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -15,12 +15,14 @@ import MessageUI
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var sentences: JSON = JSON.null
-    var contentSentence: String? = nil
+    var contentSentence: String = ""
+    var contentVisible:Bool = false
+    
+    var canBecomeFirstResponde: Bool { return true }
+    override var prefersStatusBarHidden: Bool { return true }
     
     // Shared Info
     let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Baixe o app: http://jobspills.caife.com.br"
-    
-    var contentVisible:Bool = false
     
     // Interface components
     @IBOutlet weak var lblChapter: UILabel!
@@ -35,29 +37,26 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         // Hidding some buttons and labels o beniging
-        lblChapter.hidden = true
-        lblInfo.hidden = true
-        lblDivider.hidden = true
-        lblMedia.hidden = true
-        lblYear.hidden = true
+        lblChapter.isHidden = true
+        lblInfo.isHidden = true
+        lblDivider.isHidden = true
+        lblMedia.isHidden = true
+        lblYear.isHidden = true
         
         
         // Enabling label sentence to be touchable
-        lblSentence.userInteractionEnabled = true
+        lblSentence.isUserInteractionEnabled = true
         
         // Detecting long press touch on sentence
         let longTouchGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTouchHandler(_:)))
         lblSentence.addGestureRecognizer(longTouchGesture)
         
         // Detecting screenshot
-        let mainQueue = NSOperationQueue.mainQueue()
-        NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationUserDidTakeScreenshotNotification,
-            object: nil,
-            queue: mainQueue) { notification in
+        NotificationCenter.default.addObserver(forName: .UIApplicationUserDidTakeScreenshot, object: nil, queue: OperationQueue.main) { notification in
                 if self.contentVisible == true {
                     self.showActionOptions()
                     
-                    FIRAnalytics.logEventWithName("Took Screenshot to Share Content", parameters: nil)
+                    FIRAnalytics.logEvent(withName: "Took Screenshot to Share Content", parameters: nil)
                 }
             }
     }
@@ -67,90 +66,91 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func canBecomeFirstResponder() -> Bool {
-        return true
-    }
-    
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
             randomizeSentence()
             
             contentVisible = true
             
-            FIRAnalytics.logEventWithName("Shaked to Randomize Sentence", parameters: nil)
+            FIRAnalytics.logEvent(withName: "Shaked to Randomize Sentence", parameters: nil)
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         randomizeSentence()
         
         contentVisible = true
         
-        FIRAnalytics.logEventWithName("Touched to Randomize Sentence", parameters: nil)
+        FIRAnalytics.logEvent(withName: "Touched to Randomize Sentence", parameters: nil)
     }
     
     // Randomize a sentence to show
     func randomizeSentence() -> String {
-        let position = Int(arc4random_uniform(UInt32(self.sentences.count)))
+        let randomPosition = Int(arc4random_uniform(UInt32(self.sentences.count)))
         
-        let chapter: String = String(self.sentences[position]["Chapter"])
-        self.contentSentence = String(self.sentences[position]["Text"])
-        let info: String = String(self.sentences[position]["Info"])
-        let media: String = String(self.sentences[position]["Media"])
-        let year: String = String(self.sentences[position]["Year"])
+        let chapter = self.sentences[randomPosition]["Chapter"].string
+        let text = self.sentences[randomPosition]["Text"].string
+        let info = self.sentences[randomPosition]["Info"].string
+        let media = self.sentences[randomPosition]["Media"].string
+        let year = self.sentences[randomPosition]["Year"].string
         
         self.lblChapter.text = chapter
-        self.lblChapter.hidden = false
+        self.lblChapter.isHidden = false
         
-        self.lblSentence.text = self.contentSentence
+        if let text = text {
+            self.contentSentence = text
+            self.lblSentence.text = self.contentSentence
+        }
         
         self.lblDivider.text = "___"
-        self.lblDivider.hidden = false
-        
+        self.lblDivider.isHidden = false
+
         self.lblInfo.text = info
-        self.lblInfo.hidden = false
-        self.lblMedia.text = media
-        self.lblMedia.hidden = false
-        self.lblYear.text = year
-        self.lblYear.hidden = false
+        self.lblInfo.isHidden = false
         
-        return contentSentence!
+        self.lblMedia.text = media
+        self.lblMedia.isHidden = false
+        
+        self.lblYear.text = year
+        self.lblYear.isHidden = false
+        
+        return contentSentence
     }
     
     // Composing content to show this time
     func stringifySentence() -> String {
-        let sentence = "\"\(contentSentence!)\""
+        let sentence = "\"\(contentSentence)\""
         
         return sentence
     }
     
     // Showing action options to share or report error on sentence
     func showActionOptions() {
-        let optionMenu = UIAlertController(title: nil, message: "O que deseja fazer?", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "O que deseja fazer?", preferredStyle: .actionSheet)
         
-        let shareScreenShotOption = UIAlertAction(title: "Compartilhar screenshot", style: .Default, handler: {
+        let shareScreenShotOption = UIAlertAction(title: "Compartilhar screenshot", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
                 self.shareScreenShotActivity()
         })
         
-        let shareSentenceOption = UIAlertAction(title: "Compartilhar frase", style: .Default, handler: {
+        let shareSentenceOption = UIAlertAction(title: "Compartilhar frase", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.shareSentenceActivity()
         })
         
-        let reportErrorOption = UIAlertAction(title: "Reportar erro", style: .Default, handler: {
+        let reportErrorOption = UIAlertAction(title: "Reportar erro", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
                 self.reportSentenceError()
         })
         
-        let cancelOption = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
+        let cancelOption = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         
         optionMenu.addAction(shareScreenShotOption)
         optionMenu.addAction(shareSentenceOption)
         optionMenu.addAction(reportErrorOption)
         optionMenu.addAction(cancelOption)
         
-        self.presentViewController(optionMenu, animated: true, completion: nil)
+        self.present(optionMenu, animated: true, completion: nil)
     }
     
     // Showing share activity
@@ -158,12 +158,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         let sharedImageContent = screenShotToShare().0
         
-        let sharedItems = [sharedImageContent, sharedInfoContent]
+        let sharedItems = [sharedImageContent, sharedInfoContent] as [Any]
         
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
-        presentViewController(activityViewController, animated: true, completion: {})
+        present(activityViewController, animated: true, completion: {})
         
-        FIRAnalytics.logEventWithName("Shared Screenshot", parameters: nil)
+        FIRAnalytics.logEvent(withName: "Shared Screenshot", parameters: nil)
     }
     
     func shareSentenceActivity() {
@@ -171,9 +171,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         let sharedItems = [stringifySentence(), sharedInfoContent]
         
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
-        presentViewController(activityViewController, animated: true, completion: {})
+        present(activityViewController, animated: true, completion: {})
         
-        FIRAnalytics.logEventWithName("Shared Sentence", parameters: nil)
+        FIRAnalytics.logEvent(withName: "Shared Sentence", parameters: nil)
     }
     
     // Reporting Sencente Error
@@ -188,55 +188,52 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         mail.setToRecipients([destination])
         mail.addAttachmentData(attachment, mimeType: "image/jpg", fileName: "Sentence")
         
-        self.presentViewController(mail, animated: true, completion: nil)
+        self.present(mail, animated: true, completion: nil)
     }
     
     // Controlling mail sending
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         switch result {
-        case MFMailComposeResultCancelled:
+        case MFMailComposeResult.cancelled:
             print("Mail cancelled")
-        case MFMailComposeResultSaved:
+        case MFMailComposeResult.saved:
             print("Mail saved")
-        case MFMailComposeResultSent:
+        case MFMailComposeResult.sent:
             print("Mail sent")
-        case MFMailComposeResultFailed:
+        case MFMailComposeResult.failed:
             print("Mail sent failure: \(error!.localizedDescription)")
         default:
             break
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         
-        FIRAnalytics.logEventWithName("Error Reported", parameters: nil)
+        FIRAnalytics.logEvent(withName: "Error Reported", parameters: nil)
         
     }
 
     // Getting screen image to share
-    func screenShotToShare() -> (UIImage, NSData) {
+    func screenShotToShare() -> (UIImage, Data) {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
         
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = UIImagePNGRepresentation(image!)
         let imageToShare = UIImage.init(data: imageData!)
         return (imageToShare!, imageData!)
     }
     
     // Handling with long touch gesture
-    func longTouchHandler(sender: UILongPressGestureRecognizer) {
-        if sender.state == .Began {
+    func longTouchHandler(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
             if contentVisible == true {
                 self.showActionOptions()
                 
-                FIRAnalytics.logEventWithName("Long Touched to Share Content", parameters: nil)
+                FIRAnalytics.logEvent(withName: "Long Touched to Share Content", parameters: nil)
             }
         }
     }
     
-    //MARK: Some animations
-    
-
 }
