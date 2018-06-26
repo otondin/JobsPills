@@ -3,26 +3,25 @@
 //  JobsPills
 //
 //  Created by Gabriel Tondin on 16/07/16.
-//  Copyright © 2016 Caife Software. All rights reserved.
+//  Copyright © 2016 Gabriel Tondin. All rights reserved.
 //
 
 import UIKit
 import SwiftyJSON
-import Firebase
-import FirebaseAnalytics
 import MessageUI
+import FirebaseAnalytics
 
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var sentences: JSON = JSON.null
-    var contentSentence: String = ""
-    var contentVisible:Bool = false
+    var contentSentence: String?
+    var contentVisible: Bool = false
     
     var canBecomeFirstResponde: Bool { return true }
     override var prefersStatusBarHidden: Bool { return true }
-    
+        
     // Shared Info
-    let sharedInfoContent = "JobsPills - Frases do Steve Jobs - Baixe o app: http://jobspills.caife.com.br"
+    let sharedInfoContent = "JobsPills - Baixe o app: http://jobspills.woords.com.br"
     
     // Interface components
     @IBOutlet weak var lblChapter: UILabel!
@@ -35,6 +34,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if let file = Bundle(for:AppDelegate.self).path(forResource: "sentences", ofType: "json") {
+            let data = try! Data(contentsOf: URL(fileURLWithPath: file))
+            let json = try! JSON(data:data)
+            sentences = json
+        }
         
         // Hidding some buttons and labels o beniging
         lblChapter.isHidden = true
@@ -56,7 +61,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
                 if self.contentVisible == true {
                     self.showActionOptions()
                     
-                    FIRAnalytics.logEvent(withName: "Took Screenshot to Share Content", parameters: nil)
+                    Analytics.logEvent("Took Screenshot to Share Content", parameters: nil)
                 }
             }
     }
@@ -72,7 +77,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             
             contentVisible = true
             
-            FIRAnalytics.logEvent(withName: "Shaked to Randomize Sentence", parameters: nil)
+            Analytics.logEvent("Shaked to Randomize Sentence", parameters: nil)
         }
     }
     
@@ -81,18 +86,18 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         contentVisible = true
         
-        FIRAnalytics.logEvent(withName: "Touched to Randomize Sentence", parameters: nil)
+        Analytics.logEvent("Touched to Randomize Sentence", parameters: nil)
     }
     
     // Randomize a sentence to show
-    func randomizeSentence() -> String {
-        let randomPosition = Int(arc4random_uniform(UInt32(self.sentences.count)))
+    func randomizeSentence() {
+        let randomPosition = Int(arc4random_uniform(UInt32(sentences.count)))
         
-        let chapter = self.sentences[randomPosition]["Chapter"].string
-        let text = self.sentences[randomPosition]["Text"].string
-        let info = self.sentences[randomPosition]["Info"].string
-        let media = self.sentences[randomPosition]["Media"].string
-        let year = self.sentences[randomPosition]["Year"].string
+        let chapter = sentences[randomPosition]["Chapter"].string
+        let text = sentences[randomPosition]["Text"].string
+        let info = sentences[randomPosition]["Info"].string
+        let media = sentences[randomPosition]["Media"].string
+        let year = sentences[randomPosition]["Year"].string
         
         self.lblChapter.text = chapter
         self.lblChapter.isHidden = false
@@ -113,15 +118,18 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         self.lblYear.text = year
         self.lblYear.isHidden = false
-        
-        return contentSentence
     }
     
     // Composing content to show this time
-    func stringifySentence() -> String {
-        let sentence = "\"\(contentSentence)\""
+    func stringifySentence(_ contentSentence: String?) -> String {
         
-        return sentence
+        var stringSentence: String = ""
+        
+        if let content = contentSentence {
+            stringSentence = "\"\(content)\" "
+        }
+        
+        return stringSentence
     }
     
     // Showing action options to share or report error on sentence
@@ -163,23 +171,23 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
         present(activityViewController, animated: true, completion: {})
         
-        FIRAnalytics.logEvent(withName: "Shared Screenshot", parameters: nil)
+        Analytics.logEvent("Shared Screenshot", parameters: nil)
     }
     
     func shareSentenceActivity() {
         
-        let sharedItems = [stringifySentence(), sharedInfoContent]
+        let sharedItems = [stringifySentence(contentSentence), sharedInfoContent]
         
         let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
         present(activityViewController, animated: true, completion: {})
         
-        FIRAnalytics.logEvent(withName: "Shared Sentence", parameters: nil)
+        Analytics.logEvent("Shared Sentence", parameters: nil)
     }
     
     // Reporting Sencente Error
     func reportSentenceError() {
         let subject = "JobsPills - Reportar erro"
-        let destination = "jobspills@caife.com.br"
+        let destination = "jobspills@woords.com.br"
         let mail = MFMailComposeViewController()
         let attachment = screenShotToShare().1
         
@@ -207,7 +215,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         }
         self.dismiss(animated: true, completion: nil)
         
-        FIRAnalytics.logEvent(withName: "Error Reported", parameters: nil)
+        Analytics.logEvent("Error Reported", parameters: nil)
         
     }
 
@@ -226,12 +234,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     // Handling with long touch gesture
-    func longTouchHandler(_ sender: UILongPressGestureRecognizer) {
+    @objc func longTouchHandler(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             if contentVisible == true {
                 self.showActionOptions()
                 
-                FIRAnalytics.logEvent(withName: "Long Touched to Share Content", parameters: nil)
+                Analytics.logEvent("Long Touched to Share Content", parameters: nil)
             }
         }
     }

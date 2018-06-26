@@ -3,7 +3,7 @@
 //  JobsPills
 //
 //  Created by Gabriel Tondin on 21/06/18.
-//  Copyright © 2018 Caife Software. All rights reserved.
+//  Copyright © 2018 Gabriel Tondin. All rights reserved.
 //
 
 import Foundation

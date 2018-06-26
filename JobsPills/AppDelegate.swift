@@ -3,36 +3,20 @@
 //  JobsPills
 //
 //  Created by Gabriel Tondin on 16/07/16.
-//  Copyright © 2016 Caife Software. All rights reserved.
+//  Copyright © 2016 Gabriel Tondin. All rights reserved.
 //
 
 import UIKit
 import SwiftyJSON
-import FirebaseAnalytics
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let viewController = self.window?.rootViewController as! ViewController
-        
-        // Loading sentences form JSON file
-        if let file = Bundle(for:AppDelegate.self).path(forResource: "sentences", ofType: "json") {
-            let data = try! Data(contentsOf: URL(fileURLWithPath: file))
-            let json = try! JSON(data:data)
-            viewController.sentences = json
-        } else {
-            viewController.sentences = JSON.null
-        }
-        
-        FIRApp.configure()
-
         return true
     }
     
